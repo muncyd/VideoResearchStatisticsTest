@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Videos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #f7f4ef;
+      --paper:    #ffffff;
+      --ink:      #1a1714;
+      --ink-2:    #3d3830;
+      --ink-3:    #6e6659;
+      --rule:     #ddd8d0;
+      --accent:   #8b4513;
+      --accent-2: #c47a3a;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      padding: 48px 24px 80px;
+    }
+
+    /* Subtle ruled-paper texture on the body */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        transparent,
+        transparent 31px,
+        var(--rule) 31px,
+        var(--rule) 32px
+      );
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* ── Header card ──────────────────────────────── */
+    .header-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-top: 4px solid var(--accent);
+      border-radius: 2px;
+      padding: 36px 44px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .header-label {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .header-title {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .header-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent-2);
+      margin-bottom: 20px;
+    }
+
+    .header-description {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink-2);
+      line-height: 1.75;
+      max-width: 640px;
+    }
+
+    /* ── Video grid ───────────────────────────────── */
+    .videos-label {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 16px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 620px) {
+      .video-grid { grid-template-columns: 1fr; }
+      .header-card { padding: 28px 24px 24px; }
+    }
+
+    .video-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .video-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.11);
+      transform: translateY(-2px);
+    }
+
+    .video-number {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 20px 12px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .video-index {
+      font-family: 'Lora', Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    .video-card-title {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-2);
+      letter-spacing: 0.02em;
+    }
+
+    /* Responsive 16:9 embed wrapper */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #111;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── Title & Description Card ──────────────── -->
+    <div class="header-card">
+      <p class="header-label">Research Project</p>
+
+      <!-- ✏️  Edit the title below -->
+      <h1 class="header-title">Your Research Project Title</h1>
+
+      <div class="header-divider"></div>
+
+      <!-- ✏️  Edit the description below -->
+      <p class="header-description">
+        Enter your project description here. This text appears below the title and gives
+        viewers context about the research, its goals, and what they will learn from
+        watching the videos below. You can make this as long or as brief as needed.
+      </p>
+    </div>
+
+    <!-- ── Videos ─────────────────────────────────── -->
+    <p class="videos-label">Video Materials</p>
+
+    <div class="video-grid">
+
+      <!-- ── Video 1 ─────────────────────────────── -->
+      <div class="video-card">
+        <div class="video-number">
+          <span class="video-index">No. 1</span>
+          <!-- ✏️  Edit the video card title below -->
+          <span class="video-card-title">Video Title One</span>
+        </div>
+        <div class="video-wrapper">
+          <!--
+            ✏️  REPLACE src with your YouTube embed URL.
+            Get it from: YouTube → Share → Embed → copy the src value.
+            Example: https://www.youtube.com/embed/YOUR_VIDEO_ID
+          -->
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1"
+            title="Video 1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- ── Video 2 ─────────────────────────────── -->
+      <div class="video-card">
+        <div class="video-number">
+          <span class="video-index">No. 2</span>
+          <!-- ✏️  Edit the video card title below -->
+          <span class="video-card-title">Video Title Two</span>
+        </div>
+        <div class="video-wrapper">
+          <!--
+            ✏️  REPLACE src with your YouTube embed URL.
+            Example: https://www.youtube.com/embed/YOUR_VIDEO_ID
+          -->
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2"
+            title="Video 2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
